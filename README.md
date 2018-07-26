@@ -1,21 +1,6 @@
-# react-native-navigation-bootstrap
+# Moxie
 
-## Bootstrap for a vanilla `react-native-navigation` based project
-
-Clone this repository to start a project based on
-
-```
-"react-native": "0.51.1",
-"react": "^16.3.0-alpha.1",
-"react-native-navigation": "^2.0.0",
-"react-native-ui-lib": "^3.3.32"
-```
-
-
-Check `react-native-navigation`'s [documentation](https://wix.github.io/react-native-navigation/v2/#/) for usage details.
-
-
-### preparing your project
+### Preparing your project
 
 Download npm dependencies:
 
@@ -23,9 +8,6 @@ Download npm dependencies:
 npm i -g react-native-cli
 npm install
 ```
-
-### Renaming the project
-If you would like to rename the project you can use [React Native Rename](https://www.npmjs.com/package/react-native-rename)
 
 ### Running your project
 
@@ -53,6 +35,8 @@ From project dir, run:
 
 
 3. Set your Emulator to live reload changes `⌘`+`m`  (`cmd`+`m`) => `Enable Hot Reloading`
+
+---
 
 To open packager manually, from project dir run:
 

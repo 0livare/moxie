@@ -5,7 +5,7 @@ import Screen1 from './Screen1';
 
 export function registerScreens() {
 
-  Navigation.registerComponent('reactNativeInit.App', () => App);
-  Navigation.registerComponent('reactNativeInit.Screen1', () => Screen1);
+  Navigation.registerComponent('moxie.App', () => App);
+  Navigation.registerComponent('moxie.Screen1', () => Screen1);
 
 }

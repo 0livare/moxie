@@ -24,7 +24,7 @@ class App extends Component {
   pushScreen() {
     Navigation.push(this.props.componentId, {
       component: {
-        name: 'reactNativeInit.Screen1',
+        name: 'moxie.Screen1',
         options: {
           topBar: {
             title: {

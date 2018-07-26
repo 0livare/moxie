@@ -1,4 +1,4 @@
-package com.reactnativeinit;
+package com.moxie;
 
 import android.support.annotation.Nullable;
 
