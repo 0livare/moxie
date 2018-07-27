@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import {StyleSheet} from 'react-native';
 import PropTypes from 'prop-types';
 import {View, Text, Button} from 'react-native-ui-lib';
-const {Navigation} = require('react-native-navigation');
+import { Navigation } from 'react-native-navigation';
 
 
 class App extends Component {
@@ -24,14 +24,7 @@ class App extends Component {
   pushScreen() {
     Navigation.push(this.props.componentId, {
       component: {
-        name: 'moxie.Screen1',
-        options: {
-          topBar: {
-            title: {
-              text: 'Screen1',
-            }
-          }
-        }
+        name: 'moxie.Login',
       }
     });
   }
