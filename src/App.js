@@ -24,7 +24,7 @@ class App extends Component {
   pushScreen() {
     Navigation.push(this.props.componentId, {
       component: {
-        name: 'moxie.Login',
+        name: 'moxie.Screen1',
       }
     });
   }
