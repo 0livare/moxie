@@ -1,5 +1,6 @@
-import {Navigation} from 'react-native-navigation';
-import {registerScreens} from './src/screens';
+import { Navigation } from 'react-native-navigation'
+import { registerScreens } from './src/screens'
+import { loadAssets } from './src/assets'
 
 // HIDE ANNOYING WARNINGS STATING THAT REACT NATIVE NEEDS TO UPDATE NATIVE COMPONENTS
 // console.disableYellowBox = true;
@@ -9,7 +10,8 @@ YellowBox.ignoreWarnings([
   'Warning: componentWillReceiveProps is deprecated',
 ]);
 
-registerScreens();
+registerScreens()
+loadAssets()
 
 Navigation.events().registerAppLaunchedListener(() => {
   Navigation.setRoot({
