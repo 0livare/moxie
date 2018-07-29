@@ -1,12 +1,17 @@
-import {Navigation} from 'react-native-navigation';
+import {Navigation} from 'react-native-navigation'
 
-import App from './App';
-import Screen1 from './Screen1';
-import Login from './Login';
+import App from './Pages/App'
+import Screen1 from './Pages/Screen1'
+import Login from './Pages/Login'
+import Home from './Pages/Home'
 
 export function registerScreens() {
 
-  Navigation.registerComponent('moxie.App', () => App);
-  Navigation.registerComponent('moxie.Screen1', () => Screen1);
-  Navigation.registerComponent('moxie.Login', () => Login);
+  register('moxie.App', App)
+  register('moxie.Screen1', Screen1)
+  register('moxie.Login', Login)
+
+  function register(id, component) {
+    Navigation.registerComponent(id, () => component)
+  }
 }
