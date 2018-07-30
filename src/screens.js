@@ -10,6 +10,7 @@ export function registerScreens() {
   register('moxie.App', App)
   register('moxie.Screen1', Screen1)
   register('moxie.Login', Login)
+  register('moxie.Home', Home)
 
   function register(id, component) {
     Navigation.registerComponent(id, () => component)

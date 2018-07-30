@@ -22,7 +22,7 @@ Navigation.events().registerAppLaunchedListener(() => {
           {
             stack: {
               children: [{
-                component: {name: 'moxie.App'}
+                component: {name: 'moxie.Home'}
               }],
               options: {
                 bottomTab: {
@@ -55,8 +55,13 @@ Navigation.events().registerAppLaunchedListener(() => {
           }
         ],
         options: {
-          backgroundColor: 'green',
-          drawBehind: false,
+          // Attempt to remove the labels vertical space from below the tab icons
+          iconInsets: { // add this to change icon position (optional, iOS only).
+            top: 6,     // optional, default is 0.
+            left: 0,    // optional, default is 0.
+            bottom: -6, // optional, default is 0.
+            right: 0    // optional, default is 0.
+          },
         },
       },
     }
