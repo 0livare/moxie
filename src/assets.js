@@ -2,12 +2,16 @@ import {Assets} from 'react-native-ui-lib'
 
 export function loadAssets() {
 
+  var imagePath = '../assets/images/'
+  var iconPath = imagePath + 'icons/'
+
   Assets.loadAssetsGroup('icons', {
-    home:     require('../images/icons/home.png'),
-    settings: require('../images/icons/settings.png'),
+    calendar: require(iconPath + 'calendar.png'),
+    home:     require(iconPath + 'home.png'),
+    settings: require(iconPath + 'settings.png'),
   })
 
   Assets.loadAssetsGroup('images', {
-    runWords: require('../images/running-words.jpg'),
+    runWords: require(imagePath + 'running-words.jpg'),
   })
 }

@@ -1,5 +1,5 @@
 import React, {Component} from 'react'
-import ProgressRing from '../Components/ProgressRing'
+import ProgressRing from '../components/ProgressRing'
 import {View, TextInput, Text, Button, Card, Assets} from 'react-native-ui-lib'
 import {StyleSheet} from 'react-native'
 
@@ -15,7 +15,13 @@ export default class Home extends Component {
   }
 
   static get options() {
-      return {}
+    return {
+      topBar: {
+        title: {
+          text: 'Home',
+        }
+      }
+    }
   }
 
   finishStuff() {

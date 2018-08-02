@@ -1,5 +1,5 @@
 import { loadAssets } from './src/assets'
-import registerNavigation from './src/Navigation'
+import registerNavigation from './src/navigation'
 
 // HIDE ANNOYING WARNINGS STATING THAT REACT NATIVE NEEDS TO UPDATE NATIVE COMPONENTS
 console.disableYellowBox = true;
