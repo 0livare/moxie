@@ -7,6 +7,7 @@ Download npm dependencies:
 ```sh
 npm i -g react-native-cli
 npm install
+react-native link react-native-svg
 ```
 
 ### Running your project
@@ -21,7 +22,7 @@ From project dir, run:
 	```
 	
 
-2. Open the project in xcode from `ios/reactNativeInit.xcodeproj`
+2. Open the project in xcode from `ios/moxie.xcodeproj`
 3. Build and run from Xcode
 
 #### Android

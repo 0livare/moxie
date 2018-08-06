@@ -2,6 +2,7 @@ import React, {Component} from 'react'
 import {StyleSheet} from 'react-native'
 import {View, Text} from 'react-native-ui-lib'
 import { Calendar, CalendarList, Agenda } from 'react-native-calendars'
+import {marathonNoviceHigdonPlan} from '../running-plans'
 
 export default class Schedule extends Component {
 
@@ -30,7 +31,7 @@ export default class Schedule extends Component {
       <Agenda
         items={this.state.items}
         loadItemsForMonth={this.loadItems}
-        selected={'2017-05-16'}
+        selected={'2018-8-01'}
         renderItem={this.renderItem}
         renderEmptyDate={this.renderEmptyDate}
         rowHasChanged={this.rowHasChanged}
@@ -52,22 +53,43 @@ export default class Schedule extends Component {
     );
   }
 
-  loadItems(day) {
+  loadItems({month, timestamp}) {
+    console.log('loading items for ', month)
+    let today = new Date()
+    let plan = marathonNoviceHigdonPlan
+
+    console.log('foobar: PLAN IS ', plan)
+
+
     setTimeout(() => {
-      for (let i = -15; i < 85; i++) {
-        const time = day.timestamp + i * 24 * 60 * 60 * 1000
-        const strTime = this.timeToString(time)
+    //   for (let i = -15; i < 85; i++) {
+    //     const time = timestamp + i * 24 * 60 * 60 * 1000
+    //     const strTime = this.timeToString(time)
 
-        if (this.state.items[strTime]) continue
+    //     if (this.state.items[strTime]) continue
 
-        this.state.items[strTime] = []
-        const numItems = 1//Math.floor(Math.random() * 5)
+    //     this.state.items[strTime] = []
+    //     const numItems = 1//Math.floor(Math.random() * 5)
 
-        for (let j = 0; j < numItems; j++) {
-          this.state.items[strTime].push({
-            name: 'Item for ' + strTime,
-            height: 20//Math.max(50, Math.floor(Math.random() * 150))
-          })
+    //     for (let j = 0; j < numItems; j++) {
+    //       this.state.items[strTime].push({
+    //         name: 'Item for ' + strTime,
+    //         height: 20//Math.max(50, Math.floor(Math.random() * 150))
+    //       })
+    //     }
+    //   }
+
+      for(let w = 1; w<plan.length; ++w) {
+        let week = plan[w]
+        console.log('week is ', week)
+        for (let d = 1; d<week.length; ++d) {
+          let daysInFuture = w * 7 + d
+          let dayOf = today.addDays(daysInFuture)
+
+          this.state.items[this.dateToString(dayOf)] = [{
+            name: week[d],
+            height: 20,
+          }]
         }
       }
 
@@ -76,6 +98,7 @@ export default class Schedule extends Component {
             .forEach(key => newItems[key] = this.state.items[key])
 
       this.setState( {items: newItems} )
+      console.log('foobar: state is', this.state)
     }, 1000);
   }
 
@@ -101,9 +124,13 @@ export default class Schedule extends Component {
     return r1.name !== r2.name;
   }
 
+  dateToString(date) {
+    return date.toISOString().split('T')[0];
+  }
+
   timeToString(time) {
     const date = new Date(time);
-    return date.toISOString().split('T')[0];
+    return this.dateToString(date)
   }
 }
 
