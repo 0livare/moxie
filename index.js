@@ -11,6 +11,3 @@ console.disableYellowBox = true;
 
 loadAssets()
 registerNavigation()
-
-
-
