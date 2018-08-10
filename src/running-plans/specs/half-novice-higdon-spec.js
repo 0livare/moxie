@@ -19,11 +19,11 @@ export default {
       7: w =>       Math.floor((w-1)/2) + 4,
     },
     textGenerators: {
-      2: val => val + 'm run',
-      3: val => val + 'm run or cross',
-      4: val => val + 'm run + strength',
-      6: val => val + ' min cross',
-      7: val => val + 'm run'
+      2: val => val + ' mile run',
+      3: val => val + ' mile run or cross training',
+      4: val => val + ' mile run + strength',
+      6: val => val + ' minute cross training session',
+      7: val => val + ' mile run'
     }
   },
   weekOverride: {
