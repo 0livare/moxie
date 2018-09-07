@@ -1,4 +1,4 @@
-import {Assets} from 'react-native-ui-lib'
+import {Assets, Colors} from 'react-native-ui-lib'
 
 export function loadAssets() {
 
@@ -14,4 +14,11 @@ export function loadAssets() {
   Assets.loadAssetsGroup('images', {
     runWords: require(imagePath + 'running-words.jpg'),
   })
+
+  Colors.loadColors({
+    dark: '#183d87',
+    light: '#2157c4',
+    accent: '#ff9d00',
+    appleBlue: '#007aff',
+  });
 }

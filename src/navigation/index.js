@@ -5,7 +5,7 @@ import createBottomTabs from './bottomTabs'
 
 function registerNavigation() {
   registerScreens()
-  
+
   Navigation.events().registerAppLaunchedListener(() => {
     Navigation.setRoot({
       root: { bottomTabs: createBottomTabs() }

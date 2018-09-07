@@ -1,7 +1,8 @@
 import React, {Component} from 'react'
 import ProgressRing from '../components/ProgressRing'
-import {View, TextInput, Text, Button, Card, Assets} from 'react-native-ui-lib'
+import {View, TextInput, Text, Button, Card, Assets, Colors} from 'react-native-ui-lib'
 import {StyleSheet} from 'react-native'
+import createLayoutStyles from '../navigation/layoutStyles'
 
 
 export default class Home extends Component {
@@ -15,13 +16,9 @@ export default class Home extends Component {
   }
 
   static get options() {
-    return {
-      topBar: {
-        title: {
-          text: 'Home',
-        }
-      }
-    }
+    const options = createLayoutStyles()
+    options.topBar.title.text = 'Home'
+    return options
   }
 
   finishStuff() {
@@ -48,7 +45,10 @@ export default class Home extends Component {
             row
             height={160} 
             onPress={this.finishStuff}
-            containerStyle={styles.card}
+            containerStyle={styles.cardContainer}
+            borderRadius={0}
+            enableShadow={false}
+            style={styles.card}
             >
             <Card.Image 
               width={115} 
@@ -56,12 +56,12 @@ export default class Home extends Component {
               />
             <Card.Section body>
               <Card.Section>
-                <Text text70 dark10>
+                <Text text70 white>
                   Welcome to Moxie!
                 </Text>
               </Card.Section>
               <Card.Section>
-                <Text text80 dark10>
+                <Text text80 white>
                   The app that focuses on planning, so you can focus on running.
                 </Text>
               </Card.Section>
@@ -88,10 +88,13 @@ const styles = StyleSheet.create({
   cards: {
     marginTop: 20,
     flexDirection: 'column',
-
   },
-  card: {
+  cardContainer: {
     marginLeft: 5,
     marginRight: 5,
+  },
+  card: {
+    backgroundColor: Colors.light,
+    color: 'white',
   }
 })

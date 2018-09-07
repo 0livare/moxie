@@ -1,9 +1,9 @@
 import React, {Component} from 'react'
 import {StyleSheet} from 'react-native'
-import {View, Text} from 'react-native-ui-lib'
 import {marathonNoviceHigdonPlan} from '../running-plans'
 import {Navigation} from 'react-native-navigation'
 import Agenda from '../components/Agenda'
+import {Picker, View, Colors} from 'react-native-ui-lib'
 
 export default class Schedule extends Component {
 
@@ -15,7 +15,7 @@ export default class Schedule extends Component {
       runningPlan: marathonNoviceHigdonPlan,
     }
 
-    // Listen for this components button presses 
+    // Listen for this components nav button presses 
     Navigation.events().bindComponent(this); 
   }
 

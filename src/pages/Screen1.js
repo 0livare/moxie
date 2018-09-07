@@ -1,12 +1,18 @@
 import React, {PureComponent} from 'react';
-import {StyleSheet} from 'react-native';
-import {View, Text, Card, MaskedInput} from 'react-native-ui-lib';
+import {StyleSheet, ScrollView} from 'react-native';
+import {View, Text, Card, MaskedInput, Colors, Picker, Stepper} from 'react-native-ui-lib';
 import { Navigation } from 'react-native-navigation';
+import _ from 'lodash'
 
 class Screen1 extends PureComponent {
 
   constructor(props) {
     super(props)
+
+    this.state = {
+      language: 'python',
+      itemsCount: 1,
+    }
 
     Navigation.events().bindComponent(this)
     this.dismiss = this.dismiss.bind(this)
@@ -40,48 +46,68 @@ class Screen1 extends PureComponent {
     let minutes = 40
 
     return (
-      <Text text20 dark20 center>
-        {hours}
-        <Text red10>h</Text>
-        {minutes}
-        <Text red10>m</Text>
-      </Text>
+      <View>
+        <Text text20 dark20 center>
+          {hours}
+          <Text red10>h</Text>
+          {minutes}
+          <Text red10>m</Text>
+        </Text>
+      </View>
     );
   }
 
 
 
   render() {
+    const options = [
+      {label: 'JavaScript', value: 'js'},
+      {label: 'Java', value: 'java'},
+      {label: 'Python', value: 'python'},
+      {label: 'C++', value: 'c++', disabled: true},
+      {label: 'Perl', value: 'perl'},
+    ];
+
+
     return (
-      <View flex center style={styles.container}>
-        import {Card} from 'react-native-ui-lib';
+      <ScrollView flex center style={styles.container}>
+          <Text>Zach is cool</Text>
 
-      <Card
-        row // control the children flow direction
-        borderRadius={12}
-        height={150}
-        containerStyle={{marginRight: 20}}
-        onPress={this.dismiss}
-        enableShadow={true}
+          <Picker
+            placeholder="Pick a single language"
+            value={this.state.language}
+            enableModalBlur={true}
+            onChange={item => this.setState({language: item})}
+            topBarProps={{title: 'Languages'}}
+            style={styles.picker}
+            hideUnderline
+            showSearch
+            searchPlaceholder={'Search a language'}
+            // onSearchChange={value => console.warn('value', value)}
+          >
+            {_.map(options, option => <Picker.Item key={option.value} value={option} disabled={option.disabled} />)}
+          </Picker>
 
-      >
-        <Card.Image width={80} imageSource={'https://www.google.com/search?q=puppy&rlz=1C5CHFA_enUS806US806&tbm=isch&source=iu&ictx=1&fir=ciMn5t5_ozcpjM%253A%252CMz_FsB1Qn4d1WM%252C_&usg=__PEqzDeQ-dsDb2uJ9MNJKE1GHS_g%3D&sa=X&ved=2ahUKEwjo7JWbk8XcAhVD44MKHXACB8IQ9QEwAXoECAMQBg#imgrc=ciMn5t5_ozcpjM:'} />
-        <MaskedInput
-          centerH
-          renderMaskedText={this.renderTimeText}
-          caretHidden
-          keyboardType={'numeric'}
-          maxLength={4}
-        />
-      </Card>
-      </View>
+          <Text>Stepper</Text>
+          <Stepper
+            label={this.state.itemsCount === 1 ? 'Item' : 'Items'}
+            min={1}
+            max={50}
+            onValueChange={count => this.setState({itemsCount: count})}
+            initialValue={1}
+          />
+
+          <Text>Zach is cool</Text>
+      </ScrollView>
     )
   }
 }
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: '#F5FCFF',
+  },
+  picker: {
+    height: 30,
   }
 })
 

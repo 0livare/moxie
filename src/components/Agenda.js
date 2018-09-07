@@ -18,7 +18,7 @@ const Agenda = ({items, runningPlan, startDate}) => {
       // Max amount of months allowed to scroll to the past. Default = 50
       pastScrollRange={1}
       // Max amount of months allowed to scroll to the future. Default = 50
-      futureScrollRange={2}
+      futureScrollRange={5}
       // markingType={'period'}
       // markedDates={{
       //    '2017-05-08': {textColor: '#666'},
